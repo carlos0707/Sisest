@@ -1,27 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bean;
 
-import java.time.LocalDate;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
-/**
- *
- * @author luand
- */
 public class Local {
+
     private int id;
     private IVehicle vehicle;
-    private LocalDate arrivalTime;
+    private LocalDateTime arrivalTime;
 
-    
-    public boolean isEmpty()
-    {
+    public Duration getTimeParked() {
+        if (isEmpty()) {
+            throw new IllegalStateException();
+        }
+        return Duration.between(arrivalTime, LocalDateTime.now());
+    }
+
+    public double getCost() {
+        System.out.println("(getTimeParked().toMinutes() * 60) = " + (getTimeParked().toMinutes() * 60));
+        System.out.println("vehicle.getCostHour() = " + vehicle.getCostHour());
+        return (getTimeParked().toMinutes() * 60) * vehicle.getCostHour();
+    }
+
+    public boolean isEmpty() {
         return vehicle == null;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -34,15 +38,15 @@ public class Local {
         return vehicle;
     }
 
-    public void setVehicle(IVehicle vehicle) {        
+    public void setVehicle(IVehicle vehicle) {
         this.vehicle = vehicle;
     }
 
-    public LocalDate getArrivalTime() {
+    public LocalDateTime getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(LocalDate arrivalTime) {
+    public void setArrivalTime(LocalDateTime arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 }
