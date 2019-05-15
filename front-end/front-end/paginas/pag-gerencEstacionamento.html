@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/compiler/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/compiler/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <title>SISEST</title>
+</head>
+
+<body>
+    <section id="barraNavegacao">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary">
+            <div class="container">
+                <a class="navbar-brand h1 mb-0 col-md-1" href="../index.html">
+                    <img src="../../imgs/logo-sistm.png" alt="logoSistema" class="" width=65%>
+                    SISEST
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSite">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link text-light">Início</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-light">Contatos</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle text-light" data-toggle="dropdown" id="navDrop">Serviços</a>
+                            <ul class="dropdown-menu bg-primary">
+                                <a href="#" class="dropdown-item text-light">Controle de Estacionamento</a>
+                                <a href="#" class="dropdown-item text-light">Serviços Financeiros</a>
+                                <a href="#" class="dropdown-item text-light">Relatórios</a>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </section>
+
+    <section id="controleEstacionamento">
+        <div class="container">
+            <h1 class="col-12 text-center mb-3 text-primary">Controle de Estacionamento</h1>
+            <hr>
+            <div class="row">
+                <div class="col-4">
+                    <table class="table table-responsive table-hover">
+                        <caption>Lista de Entradas</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">P.Veículo</th>
+                                <th scope="col">ID Vaga</th>
+                                <th scope="col">Entrada</th>
+                                <th scope="col">Custo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>XXX-0000</td>
+                                <td>A-16</td>
+                                <td>08:00</td>
+                                <td>R$15,00</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Mark</td>
+                                <td>XXX-0000</td>
+                                <td>B-16</td>
+                                <td>08:00</td>
+                                <td>R$15,00</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Mark</td>
+                                <td>XXX-0000</td>
+                                <td>C-16</td>
+                                <td>08:00</td>
+                                <td>R$15,00</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-4 ml-auto">
+                    <h4>Entrada no Estacionamento</h4>
+                    <hr>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputNomeCliente">Nome Cliente</label>
+                                <input type="text" class="form-control" id="inputNomeCliente" placeholder="Cliente">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputTipoVeiculo">Veículo</label>
+                                <select id="inputTipoVeiculo" class="form-control">
+                                    <option selected>Automóvel</option>
+                                    <option>Motocicleta</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPlacaVeiculo">Placa Veículo</label>
+                                <input type="text" class="form-control" id="inputPlacaVeiculo" data-mask="XXX-NNNN" placeholder="XXX-NNNN">
+                            </div>
+                        </div>
+                        <hr>
+                    </form>
+                    <div class="col-lg-12" style="text-align: right;">
+                        <button class="btn btn-success">Entrada</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section id="footer">
+        <nav class="navbar navbar-dark bg-gradient-primary fixed-bottom">
+            <a class="navbar-brand" href="#"><img src="../../imgs/logo-sistm.png" alt="logoSistema" class="" width=15%>
+                SISEST</a>
+            <p class="text-light align-right">©Desenvolvido por: José Carlos e Samuel Brito, 2019</p>
+        </nav>
+
+    </section>
+
+
+
+    <!--     Scripts da pagina -->
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../node_modules/popper.js/dist/umd/popper.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body></html>
