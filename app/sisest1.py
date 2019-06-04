@@ -8,10 +8,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db3.sqlite'
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 
-userOn = False ##Identificar usuário logado
-companySelect = None ##Empresa logada atualmente
-gerenciador_de_local = None
-
 db.metadata.clear()
 #models
 class Company(db.Model):    
@@ -138,6 +134,10 @@ class LocalManager:
 db.create_all()
 
 #Rotas
+
+userOn = False ##Identificar usuário logado
+companySelect = None ##Empresa logada atualmente
+gerenciador_de_local = None
 @app.route('/')
 def index():
 	return render_template('index.html', user=userOn)
@@ -194,7 +194,6 @@ def controleEstacionamento():
 
 @app.route('/controleEstacionamento', methods=["GET", "POST"])
 def adicionaTicket():
-    gerenciador_de_local = LocalManager(20) ##Cria um gerenciador que organiza um espaço com 20 locais para estacionar
     if request.method == 'POST':
         default_name = '0'
         nameClient = request.form.get('inputNomeCliente',default_name)
@@ -214,8 +213,11 @@ def adicionaTicket():
         return redirect(url_for('controleEstacionamento'))
 
 @app.route('/excluir/<int:idTicket>')
-def excluiTicket(idTicket):
+def excluiTicket(idTicket, gerenciador_de_local):
     ticket = ticketEstacionamento.query.filter_by(id=idTicket).first()
+
+    ticketDeleted = ticketEstacionamento(Local(None,None,None))
+    ticketDeleted.arrival_time = ticket.arrival_time
 
     ##gerenciador_de_local.remove_vehicle(self, vehicle_id)
 

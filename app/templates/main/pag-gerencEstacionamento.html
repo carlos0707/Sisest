@@ -14,7 +14,6 @@
                                 <th scope="col">P.Veículo</th>
                                 <th scope="col">ID Vaga</th>
                                 <th scope="col">Entrada</th>
-                                <th scope="col">Custo</th>
                                 <th scope="col">Sair</th>
                             </tr>
                         </thead>
@@ -24,15 +23,55 @@
                                 <td>{{ ticket.id}}</td>
                                 <td>{{ ticket.vehicle_plate}}</td>
                                 <td>{{ ticket.id_vaga}}</td>
-                                <td>{{ ticket.arrival_time.date()}} {{ ticket.arrival_time.time()}}  </td>
-                                <td>{{ ticket.cust}}</td>
-                                <td><a data-toggle="modal" data-target="#myModal" ><i class="fas fa-sign-out-alt"></i></a></td>
+                                <td>{{ ticket.arrival_time.date()}} {{ ticket.arrival_time.hour}}:{{ ticket.arrival_time.minute}}  </td>
+                                <td><a data-toggle="modal" data-target="#myModal{{ ticket.id }}" ><i class="fas fa-sign-out-alt"></i></a></td>
                             </tr>
                             {% endfor %}
 
                         </tbody>
                     </table>
                 </div>
+                {% for ticket in tickets %}
+                <!-- Modal -->
+                <div class="modal fade" id="myModal{{ ticket.id }}" role="dialog">
+                    <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Ticket de Estacionamento</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-responsive table-hover">
+                                <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">P.Veículo</th>
+                                            <th scope="col">ID Vaga</th>
+                                            <th scope="col">Entrada</th>
+                                            <th scope="col">Custo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>                    
+                                        <tr>
+                                            <td>{{ ticket.id}}</td>
+                                            <td>{{ ticket.vehicle_plate}}</td>
+                                            <td>{{ ticket.id_vaga}}</td>
+                                            <td>{{ ticket.arrival_time.date()}} {{ ticket.arrival_time.hour}}:{{ ticket.arrival_time.minute}}</td>
+                                            <td>R$ 0,00 </td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Confirmar</button>
+                        </div>
+                    </div>                
+                </div>
+                </div>
+                {% endfor %}
+
                 <div class="col-4 ml-auto">
                     <h4>Entrada no Estacionamento</h4>
                     <hr>
@@ -76,14 +115,12 @@
 
 
     </section>
-
-    
 <section id="modal">
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">X</button>
                         <h4 class="modal-title">Ticket de Estacionamento</h4>
                     </div>
                     <div class="modal-body">
@@ -96,7 +133,6 @@
                                                 <th scope="col">ID Vaga</th>
                                                 <th scope="col">Entrada</th>
                                                 <th scope="col">Custo</th>
-                                                <th scope="col">Sair</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -106,14 +142,10 @@
                                         </tbody>
                     </div>
                     <div class="modal-footer">
-                        <button href="/excluir/{{ ticket.id }}" type="button" class="btn btn-success" aria-hidden="true">Confirmar</button>
+                        <button href="#" type="button" class="btn btn-success" aria-hidden="true">Confirmar</button>
                     </div>
                 </div>
             </div>
-    
-    
         </div>
-    
-    
     </section>
 {%- endblock content %} 
